@@ -8,8 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var db:DBHelper = DBHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()

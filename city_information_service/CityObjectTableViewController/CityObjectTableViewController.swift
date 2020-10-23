@@ -8,6 +8,8 @@
 import UIKit
 
 class CityObjectTableViewController: UITableViewController {
+    
+    var dbCityObject: ObjectCityController = ObjectCityController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,8 @@ class CityObjectTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.title = "City Object Table"
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        dbCityObject.insert(name: "Test", type: "Test", adress: "Test", places: 12, owner: "Test", seasonality: "Test")
         
     }
 

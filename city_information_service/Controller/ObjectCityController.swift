@@ -15,6 +15,7 @@ class ObjectCityController{
     
     init() {
         db = DBHelp.openDataBase()
+        createTable()
     }
 
     func createTable() {
@@ -37,7 +38,7 @@ class ObjectCityController{
     func insert(name:String, type:String, adress:String, places:Int, owner:String, seasonality:String)
         {
 
-            let insertStatementString = "INSERT INTO person (Id, name, age) VALUES (?, ?, ?);"
+            let insertStatementString = "INSERT INTO city_objects (name, type, adress, places, owner, seasonality) VALUES (?, ?, ?, ?, ?, ?);"
             var insertStatement: OpaquePointer? = nil
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 sqlite3_bind_text(insertStatement, 1, (name as NSString).utf8String, -1, nil)
