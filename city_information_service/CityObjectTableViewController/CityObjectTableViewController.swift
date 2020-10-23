@@ -10,6 +10,7 @@ import UIKit
 class CityObjectTableViewController: UITableViewController {
     
     var dbCityObject: ObjectCityController = ObjectCityController()
+    var cityObject:[CityObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +22,21 @@ class CityObjectTableViewController: UITableViewController {
         self.title = "City Object Table"
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        dbCityObject.insert(name: "Test", type: "Test", adress: "Test", places: 12, owner: "Test", seasonality: "Test")
+        //dbCityObject.insert(name: "Test", type: "Test", adress: "Test", places: 12, owner: "Test", seasonality: "Test")
+        cityObject = dbCityObject.read()
         
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return cityObject.count
     }
 
 
@@ -42,6 +44,8 @@ class CityObjectTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityObjectCell", for: indexPath) as! CityObjectTableViewCell
         // Configure the cell...
 
+        cell.textLabel?.text = cityObject[indexPath.row].objectName + String(cityObject[indexPath.row].typeObject)
+        
         return cell
     }
  

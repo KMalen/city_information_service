@@ -35,8 +35,7 @@ class ObjectCityController{
         sqlite3_finalize(createTableStatement)
     }
     
-    func insert(name:String, type:String, adress:String, places:Int, owner:String, seasonality:String)
-        {
+    func insert(name:String, type:String, adress:String, places:Int, owner:String, seasonality:String) {
 
             let insertStatementString = "INSERT INTO city_objects (name, type, adress, places, owner, seasonality) VALUES (?, ?, ?, ?, ?, ?);"
             var insertStatement: OpaquePointer? = nil
@@ -58,5 +57,32 @@ class ObjectCityController{
             }
             sqlite3_finalize(insertStatement)
         }
+    
+    func read() -> [CityObject] {
+        let queryStatementString = "SELECT * FROM city_objects;"
+        var queryStatement: OpaquePointer? = nil
+        var citObj : [CityObject] = []
+        
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
+                let type = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let adress = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let places = sqlite3_column_int(queryStatement, 3)
+                let owner = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
+                let seasonality = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
+                
+                citObj.append(CityObject(objectName: name, typeObject: type, adressObject: adress, placesInObject: Int(places), ownerObject: owner, seasonalityObject: seasonality))
+                
+                print("Query Result:")
+                print("\(name) | \(type) | \(adress) | \(places) | \(owner) | \(seasonality)")
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return citObj
+    }
 
 }

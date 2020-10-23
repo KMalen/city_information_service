@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CityObjectModel {
+class CityObject {
     
     var objectName: String
     var typeObject: String
