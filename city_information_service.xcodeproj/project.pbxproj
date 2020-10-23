@@ -16,6 +16,7 @@
 		01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */; };
 		01FD6F5525408B9F00AF45DD /* ObjectCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */; };
 		01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */; };
+		01FD6F692543219600AF45DD /* CityObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F682543219600AF45DD /* CityObjectTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCityController.swift; sourceTree = "<group>"; };
 		01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewController.swift; sourceTree = "<group>"; };
+		01FD6F682543219600AF45DD /* CityObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */,
+				01FD6F682543219600AF45DD /* CityObjectTableViewCell.swift */,
 			);
 			path = CityObjectTableViewController;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				01115C31253F8ED200E9AAD2 /* ViewController.swift in Sources */,
 				01115C2D253F8ED200E9AAD2 /* AppDelegate.swift in Sources */,
 				01115C2F253F8ED200E9AAD2 /* SceneDelegate.swift in Sources */,
+				01FD6F692543219600AF45DD /* CityObjectTableViewCell.swift in Sources */,
 				01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
