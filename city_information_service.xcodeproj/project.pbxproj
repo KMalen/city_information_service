@@ -17,6 +17,7 @@
 		01FD6F5525408B9F00AF45DD /* ObjectCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */; };
 		01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */; };
 		01FD6F692543219600AF45DD /* CityObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F682543219600AF45DD /* CityObjectTableViewCell.swift */; };
+		01FD6F6D25432D3900AF45DD /* CityObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F6C25432D3900AF45DD /* CityObjectModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCityController.swift; sourceTree = "<group>"; };
 		01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewController.swift; sourceTree = "<group>"; };
 		01FD6F682543219600AF45DD /* CityObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewCell.swift; sourceTree = "<group>"; };
+		01FD6F6C25432D3900AF45DD /* CityObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		01115C2B253F8ED200E9AAD2 /* city_information_service */ = {
 			isa = PBXGroup;
 			children = (
+				01FD6F6B25432D2800AF45DD /* Model */,
 				01FD6F642540D15200AF45DD /* CityObjectTableViewController */,
 				01FD6F5325408B1B00AF45DD /* Controller */,
 				01F7C3D825404F6400DE93A0 /* DBHelper */,
@@ -101,6 +104,14 @@
 				01FD6F682543219600AF45DD /* CityObjectTableViewCell.swift */,
 			);
 			path = CityObjectTableViewController;
+			sourceTree = "<group>";
+		};
+		01FD6F6B25432D2800AF45DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01FD6F6C25432D3900AF45DD /* CityObjectModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01FD6F5525408B9F00AF45DD /* ObjectCityController.swift in Sources */,
+				01FD6F6D25432D3900AF45DD /* CityObjectModel.swift in Sources */,
 				01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */,
 				01115C31253F8ED200E9AAD2 /* ViewController.swift in Sources */,
 				01115C2D253F8ED200E9AAD2 /* AppDelegate.swift in Sources */,

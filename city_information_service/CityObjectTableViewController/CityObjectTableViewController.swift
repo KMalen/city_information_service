@@ -16,9 +16,9 @@ class CityObjectTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.title = "City Object Table"
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     // MARK: - Table view data source
@@ -35,8 +35,7 @@ class CityObjectTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityObjectCell", for: indexPath) as! CityObjectTableViewCell
         // Configure the cell...
 
         return cell

@@ -9,13 +9,7 @@ import UIKit
 
 class CityObjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var objectNameLabel: UILabel!
-    @IBOutlet weak var typeObjectLabel: UILabel!
-    @IBOutlet weak var adressObjectLabel: UILabel!
-    @IBOutlet weak var placesInObjectLabel: UILabel!
-    @IBOutlet weak var ownerObjectLabel: UILabel!
-    @IBOutlet weak var seasonalityObjectLabel: UILabel!
-    
+    @IBOutlet weak var textObjectLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
