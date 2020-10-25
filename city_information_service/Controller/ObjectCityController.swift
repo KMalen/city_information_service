@@ -17,9 +17,24 @@ class ObjectCityController{
         db = DBHelp.openDataBase()
         createTable()
     }
+    
+    func dropTable() {
+        let dropTableString = "DROP TABLE city_objects;"
+        var dropTableStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, dropTableString, -1, &dropTableStatement, nil) == SQLITE_OK {
+            if sqlite3_step(dropTableStatement) == SQLITE_DONE {
+                print("city objects table droped")
+            } else {
+                print("city objects could not be droped")
+            }
+        } else {
+            print("DROP TABLE statement could not be prepared")
+        }
+        sqlite3_finalize(dropTableStatement)
+    }
 
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS city_objects(name TEXT,type TEXT,adress TEXT,places INTEGER,owner TEXT,seasonality TEXT);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS city_objects(name TEXT PRIMARY KEY,type TEXT,adress TEXT,places INTEGER,owner TEXT,seasonality TEXT);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {
@@ -84,5 +99,21 @@ class ObjectCityController{
         sqlite3_finalize(queryStatement)
         return citObj
     }
+    
+    func deleteByName(name:String) {
+            let deleteStatementStirng = "DELETE FROM city_objects WHERE name = ?;"
+            var deleteStatement: OpaquePointer? = nil
+            if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
+                sqlite3_bind_text(deleteStatement, 1, (name as NSString).utf8String, -1, nil)
+                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                    print("Successfully deleted row.")
+                } else {
+                    print("Could not delete row.")
+                }
+            } else {
+                print("DELETE statement could not be prepared")
+            }
+            sqlite3_finalize(deleteStatement)
+        }
 
 }

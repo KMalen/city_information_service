@@ -24,7 +24,7 @@
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="26"/>
                                 <state key="normal" title="City Object Table"/>
                                 <connections>
-                                    <segue destination="qrb-OG-X8V" kind="presentation" modalPresentationStyle="fullScreen" id="Bur-aE-wCB"/>
+                                    <segue destination="qrb-OG-X8V" kind="show" id="Bur-aE-wCB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,7 +47,7 @@
             <objects>
                 <tableViewController id="V9A-FV-go4" customClass="CityObjectTableViewController" customModule="city_information_service" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WtT-dG-1af">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -58,14 +58,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tR-G5-tkf">
-                                            <rect key="frame" x="20" y="15" width="0.0" height="0.0"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tR-G5-tkf">
+                                            <rect key="frame" x="29" y="15" width="357" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3tR-G5-tkf" secondAttribute="bottom" constant="4" id="B5w-Yn-KHE"/>
+                                        <constraint firstItem="3tR-G5-tkf" firstAttribute="leading" secondItem="UI9-sI-0XX" secondAttribute="leadingMargin" constant="9" id="ToU-ac-wns"/>
+                                        <constraint firstItem="3tR-G5-tkf" firstAttribute="top" secondItem="UI9-sI-0XX" secondAttribute="topMargin" constant="4" id="ezA-Zi-Gh8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3tR-G5-tkf" secondAttribute="trailing" constant="8" id="gQx-ya-iGR"/>
+                                        <constraint firstItem="3tR-G5-tkf" firstAttribute="centerY" secondItem="UI9-sI-0XX" secondAttribute="centerY" id="lGV-aF-Ngn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3tR-G5-tkf" secondAttribute="trailing" constant="8" id="qjK-04-ZQ7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textObjectLabel" destination="3tR-G5-tkf" id="mgK-Gd-2wd"/>
@@ -86,11 +93,11 @@
         <!--Navigation Controller-->
         <scene sceneID="dKY-MM-edh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NyO-si-C18" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qrb-OG-X8V" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fKH-UL-qKB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="1YP-tc-UiY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <gestureRecognizers/>
                     </navigationBar>
@@ -99,6 +106,7 @@
                         <segue destination="V9A-FV-go4" kind="relationship" relationship="rootViewController" id="dDv-7c-njx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NyO-si-C18" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="521.73913043478262" y="93.75"/>
         </scene>

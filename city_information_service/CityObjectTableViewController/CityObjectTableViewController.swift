@@ -20,9 +20,11 @@ class CityObjectTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.title = "City Object Table"
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        //dbCityObject.insert(name: "Test", type: "Test", adress: "Test", places: 12, owner: "Test", seasonality: "Test")
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+//        dbCityObject.insert(name: "Test", type: "Test", adress: "Test", places: 12, owner: "Test", seasonality: "Test")
+//        dbCityObject.insert(name: "Test2", type: "Test", adress: "Test", places: 12, owner: "Test", seasonality: "Test")
         cityObject = dbCityObject.read()
         
     }
@@ -44,11 +46,23 @@ class CityObjectTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityObjectCell", for: indexPath) as! CityObjectTableViewCell
         // Configure the cell...
 
-        cell.textLabel?.text = cityObject[indexPath.row].objectName + String(cityObject[indexPath.row].typeObject)
+        cell.textObjectLabel?.text = cityObject[indexPath.row].objectName + " " + String(cityObject[indexPath.row].typeObject)
         
         return cell
     }
  
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dbCityObject.deleteByName(name: cityObject[indexPath.row].objectName)
+            cityObject.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
