@@ -12,8 +12,7 @@ class DBHelper
 {
     init()
     {
-        db = openDataBase()
-        //createTable()
+        //db = openDataBase()
     }
     
     let dbPath: String = "myDb.sqlite"
