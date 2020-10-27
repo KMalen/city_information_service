@@ -27,11 +27,40 @@ class CityObjectTableViewController: UITableViewController {
         let sourceVS = segue.source as! NewObjectCityTableViewController
         let object = sourceVS.object
         
-        let newIndexPath = IndexPath(row: cityObject.count, section: 0)
-        cityObject.append(object)
-        tableView.insertRows(at: [newIndexPath], with: .fade)
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            
+            cityObject[selectedIndexPath.row] = object
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+            
+            dbCityObject.insert(name: object.objectName, type: object.typeObject, adress: object.adressObject, places: object.placesInObject, owner: object.ownerObject, seasonality: object.seasonalityObject)
+            
+        } else {
+            
+            let newIndexPath = IndexPath(row: cityObject.count, section: 0)
+            cityObject.append(object)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+            dbCityObject.insert(name: object.objectName, type: object.typeObject, adress: object.adressObject, places: object.placesInObject, owner: object.ownerObject, seasonality: object.seasonalityObject)
+            
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard segue.identifier == "editCityObject" else { return }
         
-        dbCityObject.insert(name: object.objectName, type: object.typeObject, adress: object.adressObject, places: object.placesInObject, owner: object.ownerObject, seasonality: object.seasonalityObject)
+        
+        
+        let indexPath = tableView.indexPathForSelectedRow!
+        let cityObj = cityObject[indexPath.row]
+        let navigationVC = segue.destination as! UINavigationController
+        let newCityObjectVC = navigationVC.topViewController as! NewObjectCityTableViewController
+        
+        dbCityObject.deleteByName(name: cityObj.objectName)
+        
+        newCityObjectVC.object = cityObj
+        newCityObjectVC.title = "Edit"
+        
     }
 
     // MARK: - Table view data source

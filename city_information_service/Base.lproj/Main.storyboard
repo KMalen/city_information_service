@@ -76,6 +76,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textObjectLabel" destination="3tR-G5-tkf" id="mgK-Gd-2wd"/>
+                                    <segue destination="5mh-nF-Igc" kind="show" identifier="editCityObject" id="S7i-xL-FMt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -352,6 +353,9 @@
             <point key="canvasLocation" x="2355" y="94"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="S7i-xL-FMt"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

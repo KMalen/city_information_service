@@ -23,6 +23,7 @@ class NewObjectCityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateUIForEdit()
         updateSaveButtonState()
     }
     
@@ -36,6 +37,15 @@ class NewObjectCityTableViewController: UITableViewController {
         
         saveButton.isEnabled = !nameText.isEmpty && !typeText.isEmpty && !addressText.isEmpty
             && placesText ?? 0 > 0 && !ownerText.isEmpty && !seasonalityText.isEmpty
+    }
+    
+    private func updateUIForEdit() {
+        nameTextField.text = object.objectName
+        typeTextField.text = object.typeObject
+        addressTextField.text = object.adressObject
+        placesTextField.text = String(object.placesInObject)
+        ownerTextField.text = object.ownerObject
+        seasonalityTextField.text = object.seasonalityObject
     }
     
     @IBAction func textChanged(_ sender: UITextField) {
