@@ -76,7 +76,7 @@ class CityObjectTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityObjectCell", for: indexPath) as! CityObjectTableViewCell
         // Configure the cell...
 
-        cell.textObjectLabel?.text = cityObject[indexPath.row].objectName + " " + String(cityObject[indexPath.row].typeObject)
+        cell.textObjectLabel?.text = cityObject[indexPath.row].objectName + " " + cityObject[indexPath.row].typeObject + " " + cityObject[indexPath.row].adressObject + " " + String(cityObject[indexPath.row].placesInObject) + " " + cityObject[indexPath.row].ownerObject + " " + cityObject[indexPath.row].seasonalityObject
         
         return cell
     }
