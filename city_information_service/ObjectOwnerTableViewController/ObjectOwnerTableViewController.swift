@@ -49,23 +49,24 @@ class ObjectOwnerTableViewController: UITableViewController {
         
         if segue.identifier == "addSegue" {
             
-            let destination = segue.destination as? NewObjectOwnerTableViewController
-            destination?.lastOwnerID = objectOwner.count
+            let navVCForAdd = segue.destination as! UINavigationController
+            let newID = navVCForAdd.topViewController as! NewObjectOwnerTableViewController
+            
+            newID.lastOwner = objectOwner.count
             
         } else {
         
-        guard segue.identifier == "editObjectOwner" else { return }
+            guard segue.identifier == "editObjectOwner" else { return }
         
-        let indexPath = tableView.indexPathForSelectedRow!
-        let objOwner = objectOwner[indexPath.row]
+            let indexPath = tableView.indexPathForSelectedRow!
+            let objOwner = objectOwner[indexPath.row]
         
-        let navigationVC = segue.destination as! UINavigationController
-        let newObjectOwnerVC = navigationVC.topViewController as! NewObjectOwnerTableViewController
+            let navigationVC = segue.destination as! UINavigationController
+            let newObjectOwnerVC = navigationVC.topViewController as! NewObjectOwnerTableViewController
         
-        //dbObjectOwner.deleteByID(id: objOwner.ownerID)
-        
-        newObjectOwnerVC.object = objOwner
-        newObjectOwnerVC.title = "Edit"
+            newObjectOwnerVC.object = objOwner
+            newObjectOwnerVC.lastOwner = objOwner.ownerID
+            newObjectOwnerVC.title = "Edit"
     }
 }
 

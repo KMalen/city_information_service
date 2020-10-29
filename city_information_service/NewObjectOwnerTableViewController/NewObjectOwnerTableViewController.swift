@@ -18,7 +18,8 @@ class NewObjectOwnerTableViewController: UITableViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var lastOwnerID = Int()
+    var lastOwner = 0
+    var lastOwnerID = 0
     
     var object = ObjectOwner(ownerID: 0, objectName: "", ownerName: "", ownerType: "", ownerPhone: "", openingDate: "" )
 
@@ -27,7 +28,6 @@ class NewObjectOwnerTableViewController: UITableViewController {
         
         updateUI()
         updateSaveButtonState()
-        
     }
     
     private func updateSaveButtonState(){
@@ -43,6 +43,8 @@ class NewObjectOwnerTableViewController: UITableViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        lastOwnerID = lastOwner
         
         nameObjectTextField.text = object.objectName
         ownerNameTextField.text = object.ownerName
