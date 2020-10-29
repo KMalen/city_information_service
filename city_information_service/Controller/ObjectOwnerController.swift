@@ -78,9 +78,6 @@ class ObjectOwnerController{
         var queryStatement: OpaquePointer? = nil
         var objOwn : [ObjectOwner] = []
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             
             while sqlite3_step(queryStatement) == SQLITE_ROW {
@@ -91,7 +88,7 @@ class ObjectOwnerController{
                 let ownerPhone = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
                 let openingDate = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
                 
-                objOwn.append(ObjectOwner(ownerID: Int(id), objectName: objectName, ownerName: ownerName, ownerType: ownerType, ownerPhone: ownerPhone, openingDate: dateFormatter.date(from: openingDate)!))
+                objOwn.append(ObjectOwner(ownerID: Int(id), objectName: objectName, ownerName: ownerName, ownerType: ownerType, ownerPhone: ownerPhone, openingDate: openingDate))
                 
                 print("Query Result:")
                 print("\(id) | \(objectName) | \(ownerName) | \(ownerType) | \(ownerPhone) | \(openingDate)")

@@ -24,14 +24,15 @@ class CityObjectTableViewController: UITableViewController {
     @IBAction func unwindSegueWithSegueToCityObject(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveSegue" else { return }
         
-        let sourceVS = segue.source as! NewObjectCityTableViewController
-        let object = sourceVS.object
+        let sourceVC = segue.source as! NewObjectCityTableViewController
+        let object = sourceVC.object
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             
             cityObject[selectedIndexPath.row] = object
             tableView.reloadRows(at: [selectedIndexPath], with: .fade)
             
+            dbCityObject.deleteByName(name: object.objectName)
             dbCityObject.insert(name: object.objectName, type: object.typeObject, adress: object.adressObject, places: object.placesInObject, owner: object.ownerObject, seasonality: object.seasonalityObject)
             
         } else {
@@ -49,14 +50,11 @@ class CityObjectTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         guard segue.identifier == "editCityObject" else { return }
         
-        
-        
         let indexPath = tableView.indexPathForSelectedRow!
         let cityObj = cityObject[indexPath.row]
+        
         let navigationVC = segue.destination as! UINavigationController
         let newCityObjectVC = navigationVC.topViewController as! NewObjectCityTableViewController
-        
-        dbCityObject.deleteByName(name: cityObj.objectName)
         
         newCityObjectVC.object = cityObj
         newCityObjectVC.title = "Edit"

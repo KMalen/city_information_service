@@ -17,6 +17,7 @@
 		015FDDB72548DAAC0017EE07 /* ObjectOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDB62548DAAC0017EE07 /* ObjectOwnerController.swift */; };
 		015FDDBB2548EE0D0017EE07 /* ObjectOwnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDBA2548EE0D0017EE07 /* ObjectOwnerTableViewController.swift */; };
 		015FDDBE2548EE3F0017EE07 /* ObjectOwnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDBD2548EE3F0017EE07 /* ObjectOwnerTableViewCell.swift */; };
+		015FDDC22549B2180017EE07 /* NewObjectOwnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDC12549B2180017EE07 /* NewObjectOwnerTableViewController.swift */; };
 		01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */; };
 		01FD6F5525408B9F00AF45DD /* ObjectCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */; };
 		01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */; };
@@ -38,6 +39,7 @@
 		015FDDB62548DAAC0017EE07 /* ObjectOwnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOwnerController.swift; sourceTree = "<group>"; };
 		015FDDBA2548EE0D0017EE07 /* ObjectOwnerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOwnerTableViewController.swift; sourceTree = "<group>"; };
 		015FDDBD2548EE3F0017EE07 /* ObjectOwnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectOwnerTableViewCell.swift; sourceTree = "<group>"; };
+		015FDDC12549B2180017EE07 /* NewObjectOwnerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewObjectOwnerTableViewController.swift; sourceTree = "<group>"; };
 		01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCityController.swift; sourceTree = "<group>"; };
 		01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		01115C2B253F8ED200E9AAD2 /* city_information_service */ = {
 			isa = PBXGroup;
 			children = (
+				015FDDC02549B1E20017EE07 /* NewObjectOwnerTableViewController */,
 				015FDDB92548EDDB0017EE07 /* ObjectOwnerTableViewController */,
 				01FD6F7125461DF500AF45DD /* NewObjectCityTableViewController */,
 				01FD6F6B25432D2800AF45DD /* Model */,
@@ -100,6 +103,14 @@
 				015FDDBD2548EE3F0017EE07 /* ObjectOwnerTableViewCell.swift */,
 			);
 			path = ObjectOwnerTableViewController;
+			sourceTree = "<group>";
+		};
+		015FDDC02549B1E20017EE07 /* NewObjectOwnerTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				015FDDC12549B2180017EE07 /* NewObjectOwnerTableViewController.swift */,
+			);
+			path = NewObjectOwnerTableViewController;
 			sourceTree = "<group>";
 		};
 		01F7C3D825404F6400DE93A0 /* DBHelper */ = {
@@ -220,6 +231,7 @@
 				01FD6F6D25432D3900AF45DD /* CityObject.swift in Sources */,
 				01FD6F7325461E0700AF45DD /* NewObjectCityTableViewController.swift in Sources */,
 				015FDDBB2548EE0D0017EE07 /* ObjectOwnerTableViewController.swift in Sources */,
+				015FDDC22549B2180017EE07 /* NewObjectOwnerTableViewController.swift in Sources */,
 				015FDDBE2548EE3F0017EE07 /* ObjectOwnerTableViewCell.swift in Sources */,
 				01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */,
 				01115C31253F8ED200E9AAD2 /* ViewController.swift in Sources */,

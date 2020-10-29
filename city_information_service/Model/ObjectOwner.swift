@@ -14,9 +14,9 @@ class ObjectOwner {
     var ownerName: String
     var ownerType: String
     var ownerPhone: String
-    var openingDate: Date
+    var openingDate: String
     
-    init(ownerID: Int, objectName: String, ownerName: String, ownerType: String, ownerPhone: String, openingDate: Date) {
+    init(ownerID: Int, objectName: String, ownerName: String, ownerType: String, ownerPhone: String, openingDate: String) {
         
         self.ownerID = ownerID
         self.objectName = objectName
