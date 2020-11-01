@@ -53,7 +53,7 @@ class ObjectPopularityController{
     
     func insert(id:Int, nameObject:String, visitDate:String, visits:Int) {
 
-            let insertStatementString = "INSERT INTO objects_owner (id, name_object, visit_date, visits) VALUES (?, ?, ?, ?);"
+            let insertStatementString = "INSERT INTO objects_popularity (id, name_object, visit_date, visits) VALUES (?, ?, ?, ?);"
             var insertStatement: OpaquePointer? = nil
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 sqlite3_bind_int(insertStatement, 1, Int32(id))

@@ -70,7 +70,6 @@ class NewObjectOwnerTableViewController: UITableViewController {
         let ownerPhoneText = ownerPhoneTextField.text ?? ""
         let openingDateText = dateFormatter.string(from: openingDateDatePicker.date)
         
-        
         self.object = ObjectOwner(ownerID: lastOwnerID, objectName: objectNameText, ownerName: ownerNameText, ownerType: ownerTypeText, ownerPhone: ownerPhoneText, openingDate: openingDateText)
     }
 
