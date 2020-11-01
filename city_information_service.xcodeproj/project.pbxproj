@@ -25,6 +25,9 @@
 		015FDDDC254CABEC0017EE07 /* ObjectPopularityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDDB254CABEC0017EE07 /* ObjectPopularityTableViewController.swift */; };
 		015FDDDF254CAF3C0017EE07 /* ObjectPopularityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDDE254CAF3C0017EE07 /* ObjectPopularityTableViewCell.swift */; };
 		015FDDE2254F41B90017EE07 /* NewObjectPopularityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDE1254F41B90017EE07 /* NewObjectPopularityTableViewController.swift */; };
+		015FDDE5254F5B1D0017EE07 /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDE4254F5B1D0017EE07 /* RequestsTableViewController.swift */; };
+		015FDDE9254F5B490017EE07 /* RequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDE8254F5B490017EE07 /* RequestsTableViewCell.swift */; };
+		015FDDED254F5ED80017EE07 /* NewRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDEC254F5ED80017EE07 /* NewRequestsTableViewController.swift */; };
 		01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */; };
 		01FD6F5525408B9F00AF45DD /* ObjectCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */; };
 		01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */; };
@@ -54,6 +57,9 @@
 		015FDDDB254CABEC0017EE07 /* ObjectPopularityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPopularityTableViewController.swift; sourceTree = "<group>"; };
 		015FDDDE254CAF3C0017EE07 /* ObjectPopularityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPopularityTableViewCell.swift; sourceTree = "<group>"; };
 		015FDDE1254F41B90017EE07 /* NewObjectPopularityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewObjectPopularityTableViewController.swift; sourceTree = "<group>"; };
+		015FDDE4254F5B1D0017EE07 /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
+		015FDDE8254F5B490017EE07 /* RequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewCell.swift; sourceTree = "<group>"; };
+		015FDDEC254F5ED80017EE07 /* NewRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRequestsTableViewController.swift; sourceTree = "<group>"; };
 		01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCityController.swift; sourceTree = "<group>"; };
 		01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +189,8 @@
 		015FDDD8254CA9AE0017EE07 /* RequestsTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				015FDDE4254F5B1D0017EE07 /* RequestsTableViewController.swift */,
+				015FDDE8254F5B490017EE07 /* RequestsTableViewCell.swift */,
 			);
 			path = RequestsTableViewController;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 		015FDDD9254CA9BE0017EE07 /* NewRequestsTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				015FDDEC254F5ED80017EE07 /* NewRequestsTableViewController.swift */,
 			);
 			path = NewRequestsTableViewController;
 			sourceTree = "<group>";
@@ -320,15 +329,18 @@
 				015FDDE2254F41B90017EE07 /* NewObjectPopularityTableViewController.swift in Sources */,
 				01FD6F7325461E0700AF45DD /* NewObjectCityTableViewController.swift in Sources */,
 				015FDDDC254CABEC0017EE07 /* ObjectPopularityTableViewController.swift in Sources */,
+				015FDDE9254F5B490017EE07 /* RequestsTableViewCell.swift in Sources */,
 				015FDDC8254C99D00017EE07 /* Requests.swift in Sources */,
 				015FDDBB2548EE0D0017EE07 /* ObjectOwnerTableViewController.swift in Sources */,
 				015FDDC22549B2180017EE07 /* NewObjectOwnerTableViewController.swift in Sources */,
 				015FDDBE2548EE3F0017EE07 /* ObjectOwnerTableViewCell.swift in Sources */,
+				015FDDE5254F5B1D0017EE07 /* RequestsTableViewController.swift in Sources */,
 				01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */,
 				01115C31253F8ED200E9AAD2 /* ViewController.swift in Sources */,
 				01115C2D253F8ED200E9AAD2 /* AppDelegate.swift in Sources */,
 				01115C2F253F8ED200E9AAD2 /* SceneDelegate.swift in Sources */,
 				01FD6F692543219600AF45DD /* CityObjectTableViewCell.swift in Sources */,
+				015FDDED254F5ED80017EE07 /* NewRequestsTableViewController.swift in Sources */,
 				015FDDB42548D8DF0017EE07 /* ObjectOwner.swift in Sources */,
 				01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */,
 				015FDDCE254CA12B0017EE07 /* RequestsController.swift in Sources */,

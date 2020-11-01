@@ -53,7 +53,7 @@ class RequestsController{
     
     func insert(id:Int, nameObject:String, eventDate:String, eventName:String, eventType:String, address:String) {
 
-            let insertStatementString = "INSERT INTO objects_owner (id, name_object, event_date, event_name, event_type, address) VALUES (?, ?, ?, ?, ?, ?);"
+            let insertStatementString = "INSERT INTO requests (id, name_object, event_date, event_name, event_type, address) VALUES (?, ?, ?, ?, ?, ?);"
             var insertStatement: OpaquePointer? = nil
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                 sqlite3_bind_int(insertStatement, 1, Int32(id))
