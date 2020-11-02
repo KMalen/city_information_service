@@ -18,6 +18,7 @@ class CityObjectTableViewController: UITableViewController {
         self.title = "City Object Table"
         
         cityObject = dbCityObject.read()
+        print(dbCityObject.DBHelp.path)
         
     }
     

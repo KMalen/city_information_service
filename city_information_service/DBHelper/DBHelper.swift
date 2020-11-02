@@ -17,10 +17,13 @@ class DBHelper
     
     let dbPath: String = "myDb.sqlite"
     var db: OpaquePointer?
+    var path:String = ""
     
     func openDataBase() -> OpaquePointer? {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent(dbPath)
+        
+        path = fileURL.path
         
         var db: OpaquePointer? = nil
         
