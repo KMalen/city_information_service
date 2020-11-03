@@ -32,6 +32,10 @@
 		015FDDFF255010E60017EE07 /* FirstRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDDFE255010E60017EE07 /* FirstRequestViewController.swift */; };
 		015FDE03255015250017EE07 /* FirstRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDE02255015250017EE07 /* FirstRequestController.swift */; };
 		015FDE0625501CFE0017EE07 /* FirstRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDE0525501CFE0017EE07 /* FirstRequest.swift */; };
+		015FDE0A2550429A0017EE07 /* SecondRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDE092550429A0017EE07 /* SecondRequest.swift */; };
+		015FDE0E255043680017EE07 /* SecondRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDE0D255043680017EE07 /* SecondRequestController.swift */; };
+		015FDE12255150F40017EE07 /* SecondRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDE11255150F40017EE07 /* SecondRequestTableViewController.swift */; };
+		015FDE162551519D0017EE07 /* SecondRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FDE152551519D0017EE07 /* SecondRequestTableViewCell.swift */; };
 		01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */; };
 		01FD6F5525408B9F00AF45DD /* ObjectCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */; };
 		01FD6F662540D18500AF45DD /* CityObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */; };
@@ -68,6 +72,10 @@
 		015FDDFE255010E60017EE07 /* FirstRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRequestViewController.swift; sourceTree = "<group>"; };
 		015FDE02255015250017EE07 /* FirstRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRequestController.swift; sourceTree = "<group>"; };
 		015FDE0525501CFE0017EE07 /* FirstRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRequest.swift; sourceTree = "<group>"; };
+		015FDE092550429A0017EE07 /* SecondRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRequest.swift; sourceTree = "<group>"; };
+		015FDE0D255043680017EE07 /* SecondRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRequestController.swift; sourceTree = "<group>"; };
+		015FDE11255150F40017EE07 /* SecondRequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRequestTableViewController.swift; sourceTree = "<group>"; };
+		015FDE152551519D0017EE07 /* SecondRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRequestTableViewCell.swift; sourceTree = "<group>"; };
 		01F7C3DA25404F7F00DE93A0 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		01FD6F5425408B9F00AF45DD /* ObjectCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCityController.swift; sourceTree = "<group>"; };
 		01FD6F652540D18500AF45DD /* CityObjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +231,7 @@
 		015FDDF025500DEC0017EE07 /* RequestView */ = {
 			isa = PBXGroup;
 			children = (
+				015FDE10255150B80017EE07 /* SecondRequestView */,
 				015FDDF125500E050017EE07 /* FirstRequestView */,
 			);
 			path = RequestView;
@@ -235,6 +244,15 @@
 				015FDDFE255010E60017EE07 /* FirstRequestViewController.swift */,
 			);
 			path = FirstRequestView;
+			sourceTree = "<group>";
+		};
+		015FDE10255150B80017EE07 /* SecondRequestView */ = {
+			isa = PBXGroup;
+			children = (
+				015FDE11255150F40017EE07 /* SecondRequestTableViewController.swift */,
+				015FDE152551519D0017EE07 /* SecondRequestTableViewCell.swift */,
+			);
+			path = SecondRequestView;
 			sourceTree = "<group>";
 		};
 		01F7C3D825404F6400DE93A0 /* DBHelper */ = {
@@ -253,6 +271,7 @@
 				015FDDCA254C9CB90017EE07 /* ObjectPopularityController.swift */,
 				015FDDCD254CA12B0017EE07 /* RequestsController.swift */,
 				015FDE02255015250017EE07 /* FirstRequestController.swift */,
+				015FDE0D255043680017EE07 /* SecondRequestController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +293,7 @@
 				015FDDC4254C97AE0017EE07 /* ObjectPopularity.swift */,
 				015FDDC7254C99D00017EE07 /* Requests.swift */,
 				015FDE0525501CFE0017EE07 /* FirstRequest.swift */,
+				015FDE092550429A0017EE07 /* SecondRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,6 +382,7 @@
 				015FDDC5254C97AE0017EE07 /* ObjectPopularity.swift in Sources */,
 				015FDDCB254C9CB90017EE07 /* ObjectPopularityController.swift in Sources */,
 				015FDDDF254CAF3C0017EE07 /* ObjectPopularityTableViewCell.swift in Sources */,
+				015FDE162551519D0017EE07 /* SecondRequestTableViewCell.swift in Sources */,
 				015FDDE2254F41B90017EE07 /* NewObjectPopularityTableViewController.swift in Sources */,
 				01FD6F7325461E0700AF45DD /* NewObjectCityTableViewController.swift in Sources */,
 				015FDDDC254CABEC0017EE07 /* ObjectPopularityTableViewController.swift in Sources */,
@@ -375,9 +396,12 @@
 				015FDDFF255010E60017EE07 /* FirstRequestViewController.swift in Sources */,
 				01115C31253F8ED200E9AAD2 /* ViewController.swift in Sources */,
 				01115C2D253F8ED200E9AAD2 /* AppDelegate.swift in Sources */,
+				015FDE0E255043680017EE07 /* SecondRequestController.swift in Sources */,
 				01115C2F253F8ED200E9AAD2 /* SceneDelegate.swift in Sources */,
 				01FD6F692543219600AF45DD /* CityObjectTableViewCell.swift in Sources */,
+				015FDE12255150F40017EE07 /* SecondRequestTableViewController.swift in Sources */,
 				015FDDED254F5ED80017EE07 /* NewRequestsTableViewController.swift in Sources */,
+				015FDE0A2550429A0017EE07 /* SecondRequest.swift in Sources */,
 				015FDE0625501CFE0017EE07 /* FirstRequest.swift in Sources */,
 				015FDDB42548D8DF0017EE07 /* ObjectOwner.swift in Sources */,
 				01F7C3DB25404F7F00DE93A0 /* DBHelper.swift in Sources */,
