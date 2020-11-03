@@ -61,6 +61,96 @@
             </objects>
             <point key="canvasLocation" x="-3081" y="819"/>
         </scene>
+        <!--Third Request View Controller-->
+        <scene sceneID="mAl-bQ-Ge5">
+            <objects>
+                <viewController id="CjH-IW-1Ry" customClass="ThirdRequestViewController" customModule="city_information_service" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KSp-N1-fmM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Type Object" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-y9-ISU">
+                                <rect key="frame" x="20" y="117" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lf9-X4-Mm8">
+                                <rect key="frame" x="20" y="287" width="374" height="575"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThirdRequestLabel" id="2fj-xq-God" customClass="ThirdRequestTableViewCell" customModule="city_information_service" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2fj-xq-God" id="xfG-1W-w03">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GF-Ff-HKj">
+                                                    <rect key="frame" x="29" y="11.5" width="316" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2GF-Ff-HKj" firstAttribute="leading" secondItem="xfG-1W-w03" secondAttribute="leadingMargin" constant="9" id="Dav-5S-i2l"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2GF-Ff-HKj" secondAttribute="trailing" constant="9" id="ND2-vZ-oMh"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2GF-Ff-HKj" secondAttribute="bottom" constant="0.5" id="X5h-28-3vU"/>
+                                                <constraint firstItem="2GF-Ff-HKj" firstAttribute="top" secondItem="xfG-1W-w03" secondAttribute="topMargin" constant="0.5" id="c8y-Tl-YDr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ThirdRequestLabel" destination="2GF-Ff-HKj" id="qWw-Lu-Ukg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CjH-IW-1Ry" id="j6J-OF-W32"/>
+                                    <outlet property="delegate" destination="CjH-IW-1Ry" id="R8I-5m-PcR"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwb-NY-uul">
+                                <rect key="frame" x="105" y="199" width="204" height="43"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="26"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButton:" destination="CjH-IW-1Ry" eventType="touchUpInside" id="s0j-P1-doh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Vh-h7-J1a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Vh-h7-J1a" firstAttribute="trailing" secondItem="Wwb-NY-uul" secondAttribute="trailing" constant="105" id="1Sj-N8-86e"/>
+                            <constraint firstItem="PSV-y9-ISU" firstAttribute="centerX" secondItem="KSp-N1-fmM" secondAttribute="centerX" id="9dZ-Nj-9ei"/>
+                            <constraint firstItem="6Vh-h7-J1a" firstAttribute="trailing" secondItem="PSV-y9-ISU" secondAttribute="trailing" constant="20" id="Eof-YA-hJn"/>
+                            <constraint firstItem="6Vh-h7-J1a" firstAttribute="trailing" secondItem="lf9-X4-Mm8" secondAttribute="trailing" constant="20" id="Jil-m5-OCK"/>
+                            <constraint firstItem="PSV-y9-ISU" firstAttribute="top" secondItem="6Vh-h7-J1a" secondAttribute="top" constant="29" id="Lps-ZL-Jkj"/>
+                            <constraint firstItem="lf9-X4-Mm8" firstAttribute="leading" secondItem="6Vh-h7-J1a" secondAttribute="leading" constant="20" id="M3m-Ou-HDi"/>
+                            <constraint firstItem="PSV-y9-ISU" firstAttribute="leading" secondItem="6Vh-h7-J1a" secondAttribute="leading" constant="20" id="Reb-m3-ykm"/>
+                            <constraint firstItem="Wwb-NY-uul" firstAttribute="leading" secondItem="6Vh-h7-J1a" secondAttribute="leading" constant="105" id="dPd-xZ-ASa"/>
+                            <constraint firstItem="lf9-X4-Mm8" firstAttribute="bottom" secondItem="6Vh-h7-J1a" secondAttribute="bottom" id="iy8-C3-gPc"/>
+                            <constraint firstItem="lf9-X4-Mm8" firstAttribute="top" secondItem="Wwb-NY-uul" secondAttribute="bottom" constant="45" id="kNv-C8-tOj"/>
+                            <constraint firstItem="Wwb-NY-uul" firstAttribute="top" secondItem="PSV-y9-ISU" secondAttribute="bottom" constant="48" id="xR6-3k-wQA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="t3L-hr-LfF">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="egK-Vf-UNR">
+                            <connections>
+                                <segue destination="Bbo-JT-5H4" kind="unwind" unwindAction="unwindSegueWithSegueToMainViewWithSegue:" id="Phm-E0-Eyf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="thirdRequestTableView" destination="lf9-X4-Mm8" id="F2E-bk-2hV"/>
+                        <outlet property="typeTextField" destination="PSV-y9-ISU" id="UQB-Sa-dPQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81F-Xb-tLY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Bbo-JT-5H4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-3081.1594202898555" y="1530.8035714285713"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -152,6 +242,9 @@
                                         <state key="normal" title="Third Request">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="RiT-FL-hYb" kind="presentation" modalPresentationStyle="fullScreen" id="Hd3-lH-np7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -245,7 +338,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u3d-2I-KYO">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="R3a-jo-jmn">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="R3a-jo-jmn">
                             <connections>
                                 <segue destination="tbI-bl-ToN" kind="unwind" unwindAction="unwindSegueWithSegueToMainViewWithSegue:" id="aDe-c7-VMQ"/>
                             </connections>
@@ -438,7 +531,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="87p-tg-Cts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="JAV-Pl-Zqc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="1531"/>
+            <point key="canvasLocation" x="2361" y="1531"/>
         </scene>
         <!--New Object City Table View Controller-->
         <scene sceneID="uuv-zR-VXC">
@@ -937,7 +1030,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gm-5E-c5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3TL-eg-QWG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3263.7681159420295" y="1530.8035714285713"/>
+            <point key="canvasLocation" x="4196" y="1531"/>
         </scene>
         <!--New Requests Table View Controller-->
         <scene sceneID="HrY-Hz-LfD">
@@ -1108,7 +1201,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uet-Yh-Q4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="nM8-D7-PUg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3263.7681159420295" y="2195.7589285714284"/>
+            <point key="canvasLocation" x="4174" y="2196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dKY-MM-edh">
@@ -1244,7 +1337,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foe-As-8A2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="CZ5-Ek-mqo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1429" y="2196"/>
+            <point key="canvasLocation" x="2339" y="2196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l0t-7C-gTh">
@@ -1263,7 +1356,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THT-aX-H0T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="1531"/>
+            <point key="canvasLocation" x="1432" y="1531"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kYT-rs-yCo">
@@ -1282,7 +1375,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCU-MV-r92" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="1531"/>
+            <point key="canvasLocation" x="3286" y="1531"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="imr-qV-foV">
@@ -1301,7 +1394,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayp-0I-chQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="522" y="2196"/>
+            <point key="canvasLocation" x="1432" y="2196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iRO-YY-ioM">
@@ -1320,7 +1413,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4H-6B-lJH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="2196"/>
+            <point key="canvasLocation" x="3264" y="2196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8pA-Zg-XwK">
@@ -1359,9 +1452,28 @@
             </objects>
             <point key="canvasLocation" x="-2171" y="819"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J9B-S5-eTt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RiT-FL-hYb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ExO-27-985"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vil-tN-SHq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CjH-IW-1Ry" kind="relationship" relationship="rootViewController" id="aqZ-by-knQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qch-Gb-iHS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2171" y="1531"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ojz-Ff-YHf"/>
+        <segue reference="moo-w4-bHe"/>
         <segue reference="dTy-Ft-56X"/>
         <segue reference="die-iW-ZKW"/>
         <segue reference="S7i-xL-FMt"/>
