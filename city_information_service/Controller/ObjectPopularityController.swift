@@ -35,7 +35,7 @@ class ObjectPopularityController{
     }
 
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS objects_popularity(id INTEGER PRIMARY KEY, name_object TEXT, visit_date TEXT,visits INTEGER);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS objects_popularity(id INTEGER PRIMARY KEY, name_object TEXT, visit_date TEXT,visits INTEGER, FOREIGN KEY(name_object) REFERENCES city_objects(name));"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {

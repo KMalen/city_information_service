@@ -8,10 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        dbObjectCity.dropTable()
+//        dbObjectOwner.dropTable()
+//        dbObjectPopularity.dropTable()
+//        dbRequests.dropTable()
     }
 
     @IBAction func unwindSegueWithSegueToMainView(segue: UIStoryboardSegue) {

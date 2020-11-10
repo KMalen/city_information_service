@@ -12,7 +12,8 @@ class DBHelper
 {
     init()
     {
-        //db = openDataBase()
+        db = openDataBase()
+        pragma()
     }
     
     let dbPath: String = "myDb.sqlite"
@@ -34,5 +35,24 @@ class DBHelper
             print("Successfully opened connection to database at \(dbPath)")
             return db
         }
+    }
+    
+    func pragma() {
+        
+        let pragmaString = "PRAGMA foreign_keys = ON;"
+        var pragmaStatement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, pragmaString, -1, &pragmaStatement, nil) == SQLITE_OK
+        {
+            if sqlite3_step(pragmaStatement) == SQLITE_DONE
+            {
+                print("pragma on.")
+            } else {
+                print("pragma could not be on.")
+            }
+        } else {
+            print("PRAGMA statement could not be prepared.")
+        }
+        sqlite3_finalize(pragmaStatement)
     }
 }

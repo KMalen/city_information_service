@@ -23,9 +23,9 @@ class ObjectOwnerController{
         var dropTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, dropTableString, -1, &dropTableStatement, nil) == SQLITE_OK {
             if sqlite3_step(dropTableStatement) == SQLITE_DONE {
-                print("city objects table droped")
+                print("objects_owner table droped")
             } else {
-                print("city objects could not be droped")
+                print("objects_owner could not be droped")
             }
         } else {
             print("DROP TABLE statement could not be prepared")
@@ -34,7 +34,7 @@ class ObjectOwnerController{
     }
 
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS objects_owner(id INTEGER PRIMARY KEY, name_object TEXT, owner_name TEXT,owner_type TEXT,owner_phone TEXT,opening_date DATE);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS objects_owner(owner_name TEXT PRIMARY KEY,owner_type TEXT,owner_phone TEXT,opening_date TEXT);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {
@@ -50,17 +50,15 @@ class ObjectOwnerController{
         sqlite3_finalize(createTableStatement)
     }
     
-    func insert(id:Int, nameObject:String, ownerName:String, ownerType:String, ownerPhone:String, openingDate:String) {
+    func insert(ownerName: String, ownerType: String, ownerPhone: String, openingDate: String) {
 
-            let insertStatementString = "INSERT INTO objects_owner (id, name_object, owner_name, owner_type, owner_phone, opening_date) VALUES (?, ?, ?, ?, ?, ?);"
+            let insertStatementString = "INSERT INTO objects_owner (owner_name, owner_type, owner_phone, opening_date) VALUES (?, ?, ?, ?);"
             var insertStatement: OpaquePointer? = nil
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-                sqlite3_bind_int(insertStatement, 1, Int32(id))
-                sqlite3_bind_text(insertStatement, 2, (nameObject as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(insertStatement, 3, (ownerName as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(insertStatement, 4, (ownerType as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(insertStatement, 5, (ownerPhone as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(insertStatement, 6, (openingDate as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 1, (ownerName as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, (ownerType as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 3, (ownerPhone as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 4, (openingDate as NSString).utf8String, -1, nil)
                 
                 if sqlite3_step(insertStatement) == SQLITE_DONE {
                     print("Successfully inserted row.")
@@ -73,6 +71,24 @@ class ObjectOwnerController{
             sqlite3_finalize(insertStatement)
         }
     
+    func update(ownerName: String, ownerType: String, ownerPhone: String, openingDate: String, updateName: String) {
+        
+        let updateStatementString = "UPDATE object_owner SET name = '\(ownerName)', type = '\(ownerType)', phone = '\(ownerPhone)', opening_date = '\(openingDate)' WHERE name = '\(updateName)';"
+        
+        var updateStatement: OpaquePointer?
+          if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) ==
+              SQLITE_OK {
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+              print("\nSuccessfully updated row.")
+            } else {
+              print("\nCould not update row.")
+            }
+          } else {
+            print("\nUPDATE statement is not prepared")
+          }
+          sqlite3_finalize(updateStatement)
+    }
+    
     func read() -> [ObjectOwner] {
         let queryStatementString = "SELECT * FROM objects_owner;"
         var queryStatement: OpaquePointer? = nil
@@ -81,17 +97,15 @@ class ObjectOwnerController{
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let id = sqlite3_column_int(queryStatement, 0)
-                let objectName = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
-                let ownerName = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
-                let ownerType = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
-                let ownerPhone = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
-                let openingDate = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
+                let ownerName = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
+                let ownerType = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let ownerPhone = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let openingDate = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 
-                objOwn.append(ObjectOwner(ownerID: Int(id), objectName: objectName, ownerName: ownerName, ownerType: ownerType, ownerPhone: ownerPhone, openingDate: openingDate))
+                objOwn.append(ObjectOwner(ownerName: ownerName, ownerType: ownerType, ownerPhone: ownerPhone, openingDate: openingDate))
                 
                 print("Query Result:")
-                print("\(id) | \(objectName) | \(ownerName) | \(ownerType) | \(ownerPhone) | \(openingDate)")
+                print("\(ownerName) | \(ownerType) | \(ownerPhone) | \(openingDate)")
             }
         } else {
             print("SELECT statement could not be prepared")
@@ -100,11 +114,11 @@ class ObjectOwnerController{
         return objOwn
     }
     
-    func deleteByID(id:Int) {
-            let deleteStatementStirng = "DELETE FROM objects_owner WHERE id = ?;"
+    func deleteByName(name: String) {
+            let deleteStatementStirng = "DELETE FROM objects_owner WHERE owner_name = ?;"
             var deleteStatement: OpaquePointer? = nil
             if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
-                sqlite3_bind_int(deleteStatement, 1, Int32(id))
+                sqlite3_bind_text(deleteStatement, 1, (name as NSString).utf8String, -1, nil)
                 if sqlite3_step(deleteStatement) == SQLITE_DONE {
                     print("Successfully deleted row.")
                 } else {

@@ -35,7 +35,7 @@ class RequestsController{
     }
 
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS requests(id INTEGER PRIMARY KEY, name_object TEXT, event_date TEXT, event_name TEXT, event_type TEXT, address TEXT);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS requests(id INTEGER PRIMARY KEY, name_object TEXT, event_date TEXT, event_name TEXT, event_type TEXT, address TEXT, FOREIGN KEY(name_object) REFERENCES city_objects(name));"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {

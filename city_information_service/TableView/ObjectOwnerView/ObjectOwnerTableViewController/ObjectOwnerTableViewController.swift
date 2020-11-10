@@ -31,8 +31,7 @@ class ObjectOwnerTableViewController: UITableViewController {
             objectOwner[selectedIndexPath.row] = object
             tableView.reloadRows(at: [selectedIndexPath], with: .fade)
             
-            dbObjectOwner.deleteByID(id: object.ownerID)
-            dbObjectOwner.insert(id: object.ownerID, nameObject: object.objectName, ownerName: object.ownerName, ownerType: object.ownerType, ownerPhone: object.ownerPhone, openingDate: object.openingDate)
+            dbObjectOwner.update(ownerName: object.ownerName, ownerType: object.ownerType, ownerPhone: object.ownerPhone, openingDate: object.openingDate, updateName: object.ownerName)
             
         } else {
             
@@ -40,21 +39,12 @@ class ObjectOwnerTableViewController: UITableViewController {
             
             objectOwner.append(object)
             tableView.insertRows(at: [newIndexPath], with: .fade)
-            dbObjectOwner.insert(id: object.ownerID, nameObject: object.objectName, ownerName: object.ownerName, ownerType: object.ownerType, ownerPhone: object.ownerPhone, openingDate: object.openingDate)
+            dbObjectOwner.insert(ownerName: object.ownerName, ownerType: object.ownerType, ownerPhone: object.ownerPhone, openingDate: object.openingDate)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        if segue.identifier == "addSegue" {
-            
-            let navVCForAdd = segue.destination as! UINavigationController
-            let newID = navVCForAdd.topViewController as! NewObjectOwnerTableViewController
-            
-            newID.lastOwner = objectOwner.count
-            
-        } else {
         
             guard segue.identifier == "editObjectOwner" else { return }
         
@@ -65,9 +55,7 @@ class ObjectOwnerTableViewController: UITableViewController {
             let newObjectOwnerVC = navigationVC.topViewController as! NewObjectOwnerTableViewController
         
             newObjectOwnerVC.object = objOwner
-            newObjectOwnerVC.lastOwner = objOwner.ownerID
             newObjectOwnerVC.title = "Edit"
-    }
 }
 
     // MARK: - Table view data source
@@ -82,7 +70,7 @@ class ObjectOwnerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectOwnerCell", for: indexPath) as! ObjectOwnerTableViewCell
         
         
-        let answerCell:String = String(objectOwner[indexPath.row].ownerID) + " " + objectOwner[indexPath.row].objectName + " " + objectOwner[indexPath.row].ownerName + " "
+        let answerCell:String = objectOwner[indexPath.row].ownerName + " "
 
         cell.textOwnerObjectLabel?.text = answerCell + objectOwner[indexPath.row].ownerType + " " + objectOwner[indexPath.row].ownerPhone + " " + objectOwner[indexPath.row].openingDate
         
@@ -95,7 +83,7 @@ class ObjectOwnerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dbObjectOwner.deleteByID(id: objectOwner[indexPath.row].ownerID)
+            dbObjectOwner.deleteByName(name: objectOwner[indexPath.row].ownerName)
             objectOwner.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

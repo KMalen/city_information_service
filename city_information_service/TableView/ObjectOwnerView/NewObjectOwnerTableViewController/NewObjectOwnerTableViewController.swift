@@ -18,10 +18,9 @@ class NewObjectOwnerTableViewController: UITableViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var lastOwner = 0
-    var lastOwnerID = 0
+    var preUpdateNameOwner = 0
     
-    var object = ObjectOwner(ownerID: 0, objectName: "", ownerName: "", ownerType: "", ownerPhone: "", openingDate: "" )
+    var object = ObjectOwner(ownerName: "", ownerType: "", ownerPhone: "", openingDate: "" )
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +30,11 @@ class NewObjectOwnerTableViewController: UITableViewController {
     }
     
     private func updateSaveButtonState(){
-        let objectNameText = nameObjectTextField.text ?? ""
         let ownerNameText = ownerNameTextField.text ?? ""
         let ownerTypeText = ownerTypeTextField.text ?? ""
         let ownerPhoneText = ownerPhoneTextField.text ?? ""
         
-        saveButton.isEnabled = !objectNameText.isEmpty && !ownerNameText.isEmpty && !ownerTypeText.isEmpty && !ownerPhoneText.isEmpty
+        saveButton.isEnabled = !ownerNameText.isEmpty && !ownerTypeText.isEmpty && !ownerPhoneText.isEmpty
     }
     
     private func updateUI(){
@@ -44,9 +42,6 @@ class NewObjectOwnerTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        lastOwnerID = lastOwner
-        
-        nameObjectTextField.text = object.objectName
         ownerNameTextField.text = object.ownerName
         ownerTypeTextField.text = object.ownerType
         ownerPhoneTextField.text = object.ownerPhone
@@ -64,13 +59,12 @@ class NewObjectOwnerTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let objectNameText = nameObjectTextField.text ?? ""
         let ownerNameText = ownerNameTextField.text ?? ""
         let ownerTypeText = ownerTypeTextField.text ?? ""
         let ownerPhoneText = ownerPhoneTextField.text ?? ""
         let openingDateText = dateFormatter.string(from: openingDateDatePicker.date)
         
-        self.object = ObjectOwner(ownerID: lastOwnerID, objectName: objectNameText, ownerName: ownerNameText, ownerType: ownerTypeText, ownerPhone: ownerPhoneText, openingDate: openingDateText)
+        self.object = ObjectOwner(ownerName: ownerNameText, ownerType: ownerTypeText, ownerPhone: ownerPhoneText, openingDate: openingDateText)
     }
 
 }

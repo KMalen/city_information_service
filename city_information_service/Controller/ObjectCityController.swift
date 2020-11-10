@@ -34,7 +34,7 @@ class ObjectCityController{
     }
 
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS city_objects(name TEXT PRIMARY KEY,type TEXT,adress TEXT,places INTEGER,owner TEXT,seasonality TEXT);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS city_objects(name TEXT PRIMARY KEY,type TEXT,adress TEXT,places INTEGER,owner TEXT,seasonality TEXT, FOREIGN KEY(name) REFERENCES objects_owner(owner_name));"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {

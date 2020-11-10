@@ -19,7 +19,7 @@ class FirstRequestController {
     
     func read(dateFromUser: String) -> [FirstRequest] {
         
-        let queryStatementString = "SELECT type, name, adress FROM city_objects WHERE name IN ( SELECT name_object FROM objects_owner WHERE opening_date < ?);"
+        let queryStatementString = "SELECT type, name, adress FROM city_objects WHERE owner IN ( SELECT owner_name FROM objects_owner WHERE opening_date < '\(dateFromUser)');"
         
         var queryStatement: OpaquePointer? = nil
         var req1 : [FirstRequest] = []
