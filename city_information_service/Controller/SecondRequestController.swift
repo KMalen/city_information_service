@@ -30,13 +30,7 @@ class SecondRequestController {
         
         let queryStatementString = "SELECT event_date, event_name, name_object, address FROM requests WHERE event_date BETWEEN '\(startDate)' AND '\(endDate)';"
         
-        print(dateFormatter.string(from: endDate))
-        print(dateFormatter.string(from: startDate))
-        
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
-            
-//            sqlite3_bind_text(queryStatement, 1, (dateFormatter.string(from: endDate) as NSString).utf8String, -1, nil)
-//            sqlite3_bind_text(queryStatement, 2, (dateFormatter.string(from: startDate) as NSString).utf8String, -1, nil)
             
             while sqlite3_step(queryStatement) == SQLITE_ROW {
                 

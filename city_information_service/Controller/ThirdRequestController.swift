@@ -26,7 +26,7 @@ class ThirdRequestController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let queryStatementString = "SELECT * FROM city_objects WHERE type = '\(typeFromUser)' AND name IN ( SELECT name_object FROM objects_owner WHERE opening_date < '\(startDate)');"
+        let queryStatementString = "SELECT * FROM city_objects WHERE type = '\(typeFromUser)' AND owner IN ( SELECT owner_name FROM objects_owner WHERE opening_date < '\(startDate)');"
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             
